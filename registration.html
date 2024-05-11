@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body{
+            background-color: lightcoral;
+        }
+        .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="number"],
+select,
+textarea,
+button {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 align="center">Registration Form</h2>
+        <form id="regform" method="post">
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" autocomplete="on
+                " required>
+            </div>
+            <div class="form-group">
+                <label for="middleName">Middle Name:</label>
+                <input type="text" id="middleName" name="middleName" autocomplete="on">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" autocomplete="on" required>
+            </div>
+            <div class="form-group">
+                <label for="Date of Birth">DOB:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+        
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <input type="radio" id="Male" name="gender" required>
+            <label for="male">Male:</label>
+            <input type="radio" id="Female" name="gender" required>
+            <label for="female">Female:</label>
+    
+            <input type="radio" id="Other" name="gender" required>
+            <label for="other">Other:</label>
+        </div>
+        
+    
+        <div class="form-group">
+            <label for="province">Province:</label>
+            <input type="text" id="province" name="province" required>
+    
+        </div>
+        <div class="form-group">
+            <label for="district">District:</label>
+            <input type="text" id="district" name="district" required>
+            
+        </div>
+        <div class="form-group">
+            <label for="municipality">Municipality/VDC:</label>
+            <input type="text" id="municipality" name="municipality" required>
+    
+        </div>
+        <div class="form-group">
+            <label for="ward">Ward Number:</label>
+            <input type="number" id="ward" name="ward" required>
+    
+        </div>
+        <div class="form-group">
+            <label for="street_address">Street Address:</label>
+            <input type="text" id="street_address
+            " name="street_address" required>
+    
+        </div>
+        <div class="form-group">
+            <label for="citiizenship">Citizenship no:</label>
+            <input type="number" id="citiizenship" name="citiizenship" required>
+        </div>
+        <div class="form-group">
+            <label for=issued_date">Issued Date:</label>
+            <input type="date" id="issued_date" name="issued_date" >
+        </div>
+        <div class="form-group">
+            <label for="issued_district">Issued District:</label>
+            <input type="text" id="issued_district" name="issued_district">
+        </div>
+        <div class="form-group">
+            <label for="passport">Passport No:</label>
+            <input type="text" id="passport" name="passport">
+        </div>
+        <div class="form-group">
+            <label for="pass_issued_date">Passport issue Date:</label>
+            <input type="date" id="pass_issued_date" name="pass_issued_date">
+        </div>
+        <div class="form-group">
+            <label for="pass_issued_district">Passport issued_district:</label>
+            <input type="text" id="pass_issued_district" name="pass_issued_district">
+        </div>
+        <div class="form-group">
+            <label for="nin">National Identity Number</label>:</label>
+            <input type="number" id="nin" name="nin">
+    
+        </div>
+        <!--Family Information-->
+        <div class="form-group">
+            <label for="fatname">Father Name:</label>
+            <input type="text" id="fatname" name="fatname" required>
+    
+        </div>
+        <div class="form-group">
+            <label for="motname">Mother Name:</label>
+            <input type="text" id="motname" name="motname" required>
+    
+        </div>
+        <div class="form-group">
+            <label for="grandname">Grandfather Name:</label>
+            <input type="text" id="grandname" name="grandname">
+    
+        </div>
+    <!--Contact Information-->
+    <div class="form-group">
+        <label for="contactnum">Contact Number:</label>
+        <input type="number" id="contactnum" name="contactnum" placeholder="Enter with Country Code" required>
+    
+    </div>
+    <div class="form-group">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" autocomplete="on">
+    
+    </div>
+    
+            
+        </div>
+       
+            <!-- Add other form fields here -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+   
+</body>
+
+<script>
+let url='https://script.google.com/macros/s/AKfycbx4E8NxhWNRKL74rRYHydGRpe_06MVGizPbsarDrvfjfghuTK0nVLibVZZhk38MaCU/exec'
+let form=document.getElementById('#regform');
+form.addEventListener("submit",(e)=>{
+    let d=new FormData(form);
+    fetch(url,{
+        method:"POST",
+        body:d
+    }).then(res)=>res.text())
+    .then((finalRes)=>console.log(finalRes))
+    e.preventDefault();
+})
+</script>
+</html>
